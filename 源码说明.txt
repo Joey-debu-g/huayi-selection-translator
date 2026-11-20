@@ -1,0 +1,7 @@
+划译 1.1 窗口版源码
+在 Windows 的 PowerShell 7 中打开这个目录，运行 .\构建.ps1 即可用系统 .NET Framework 4.x 编译器生成「构建输出\正式\划译.exe」。没有 NuGet 依赖，不需要更改系统或脚本执行策略。
+可选验证：.\构建.ps1 -WithChecks
+    & '.\构建输出\正式\HuaYi.Checks.exe' offline
+    & '.\构建输出\正式\HuaYi.Checks.exe' panel '.\构建输出\预览'
+panel 使用固定应答，不联网，不注册全局快捷键，不读取其他软件或剪贴板。
+Program.cs 中的 ControlDesk 是启动主窗口；TrayApp.MainForm 指向它。默认暂停、托盘可选、关闭窗口即退出。同一版本再次启动时通过本机会话内的事件通知原窗口恢复。真实翻译需由用户点击明确的模式按钮后才会进行。
